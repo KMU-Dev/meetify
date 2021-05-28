@@ -57,10 +57,6 @@ export class Session {
         session.timestamps = this.timestamps.splice(this.timestamps.length - count, count);
         return session;
     }
-
-    /* spliceDifferentMessages() {
-        return this.messages.splice(this.messages.length - this.consequentDifferentCount, this.consequentDifferentCount);
-    } */
 }
 
 export enum SessionType {
