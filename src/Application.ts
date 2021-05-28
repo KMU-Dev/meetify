@@ -54,7 +54,7 @@ export default class Application {
             addEventListener(key, (event) => {
                 for (const Listener of value) {
                     const listener = new Listener(this.context);
-                    listener[this.eventHandlerMap[key]](event);
+                    listener[this.eventHandlerMap[key]](event as CustomEvent);
                 }
             });
         })

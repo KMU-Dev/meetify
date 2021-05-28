@@ -4,9 +4,9 @@ export default abstract class EventListener {
 
     constructor(protected readonly context: Context) {}
 
-    onJoinMeeting(event: Event) {}
+    onJoinMeeting(event: CustomEvent) {}
 
-    onMessageButtonReady(event: Event) {}
+    onMessageButtonReady(event: CustomEvent<Node>) {}
 
-    onParticipantChange(event: Event) {}
+    onParticipantChange(event: CustomEvent<number>) {}
 }

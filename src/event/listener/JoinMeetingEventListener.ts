@@ -16,10 +16,4 @@ export default class JoinMeetingEventListener extends EventListener {
         $(event.detail).trigger("click");
         this.context.showNotification("Meetify starts monitoring incoming message");
     }
-
-    onParticipantChange(event: any) {
-        console.log("participantChange");
-        console.log(event.detail);
-    }
-
 }

@@ -15,7 +15,6 @@ export default class Context {
     }
 
     setParticipantNumber(value: number) {
-        console.log("set function in Context");
         this.participantNumber = value;
     }
 
