@@ -1,13 +1,28 @@
 import Context from "../../context";
+import { Session } from "../../message/Session";
+import SessionManager from "../../message/SessionManager";
 import EventListener from "./EventListener"
 
 export default class MessageListener extends EventListener {
+
+    private readonly followRatio = 0.5;
+
+    private sessionManager?: SessionManager;
 
     constructor(protected readonly context: Context) {
         super(context);
     }
 
     onMessageReceive(event: CustomEvent<string>) {
-        console.log(event.detail);
+        if (!this.sessionManager) {
+            this.sessionManager = new SessionManager(this.context);
+            this.sessionManager.listen((session: Session) => {
+                if (session.getSameMessageCount() > this.context.getParticipantNumber() * this.followRatio) {
+                    console.log(`send "${session.lastMessage}"`);
+                }
+            });
+        }
+
+        this.sessionManager.handle(event.detail);
     }
 }

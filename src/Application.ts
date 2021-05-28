@@ -15,7 +15,7 @@ export default class Application {
 
     private context: Context = Context.getInstance();
     private observer: MutationObserver;
-    private listenerStore: Map<MeetifyEvents, NewableListener<EventListener>[]> = new Map();
+    private listenerStore: Map<NewableListener<EventListener>, MeetifyEvents[]> = new Map();
 
     constructor() {
         this.observer = new MutationObserver(this.mutationCallback);
@@ -35,11 +35,7 @@ export default class Application {
     }
 
     registerEventListener(listener: NewableListener<EventListener>, ...eventTypes: MeetifyEvents[]) {
-        for (const type of eventTypes) {
-            const registeredListeners = this.listenerStore.has(type) ? this.listenerStore.get(type)! : [];
-            registeredListeners.push(listener);
-            this.listenerStore.set(type, registeredListeners);
-        }
+        this.listenerStore.set(listener, eventTypes);
     }
 
     private mutationCallback(mutations: MutationRecord[], observer: MutationObserver) {
@@ -50,13 +46,13 @@ export default class Application {
     }
 
     private monitorEvent() {
-        this.listenerStore.forEach((value, key) => {
-            addEventListener(key, (event) => {
-                for (const Listener of value) {
-                    const listener = new Listener(this.context);
-                    listener[this.eventHandlerMap[key]](event as any);
-                }
-            });
+        this.listenerStore.forEach((eventTypes, Listener) => {
+            const listener = new Listener(this.context);
+            for (const eventType of eventTypes) {
+                addEventListener(eventType, (event) => {
+                    listener[this.eventHandlerMap[eventType]](event as any);
+                });
+            }
         })
     }
 }
