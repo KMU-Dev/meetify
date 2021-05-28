@@ -1,6 +1,7 @@
 # Meetify
 
 [![Build Status](https://jenkins.webzyno.com/buildStatus/icon?job=KMU+Development+Team%2Fmeetify%2Fmaster)](https://jenkins.webzyno.com/job/KMU%20Development%20Team/job/meetify/job/master/)
+![GitHub](https://img.shields.io/github/license/KMU-Dev/meetify?color=blue)
 
 Google Meet notification tampermonkey script.
 
