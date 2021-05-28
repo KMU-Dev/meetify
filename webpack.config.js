@@ -26,7 +26,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, "dist"),
         port: 8080,
     },
-    devtool: 'eval-source-map',
+    devtool: dev ? 'eval-source-map' : undefined,
     plugins: [
         new WebpackUserscript({
             headers: {
