@@ -7,6 +7,6 @@ export default class MessageTabListener extends EventListener {
     }
 
     onMessageTabVisibilityChange(event: CustomEvent<boolean>) {
-        console.log(event.detail);
+        if (!event.detail) this.context.showNotification("Please open the message tab. Otherwise, Meetify cannot work properly.");
     }
 }

@@ -1,7 +1,7 @@
 import Context from "../../context";
 import EventListener from "./EventListener";
 
-export default class ParticipantEventListener extends EventListener {
+export default class ParticipantListener extends EventListener {
     constructor(protected readonly context: Context) {
         super(context);
     }

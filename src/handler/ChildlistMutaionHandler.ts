@@ -16,7 +16,9 @@ export default class ChildlistMutaionHandler extends MutationHandler {
         if (mutation.addedNodes && mutation.addedNodes.length > 0) {
             mutation.addedNodes.forEach(addedNode => {
                 if ($(addedNode).attr("jsname") === "EaZ7Cc") this.fireEvent(MeetifyEvents.joinMeeting);
-                if ($(addedNode).attr("jsname") === "A5il2e" && $(addedNode).attr("data-panel-id") === "5") this.fireEvent(MeetifyEvents.messageButtonReady, addedNode);
+                if ($(addedNode).attr("jsname") === "A5il2e" && $(addedNode).attr("data-panel-id") === "2") {
+                    this.fireEvent(MeetifyEvents.messageButtonReady, addedNode);
+                }
             })
         }
     }

@@ -2,7 +2,7 @@ import $ from "jquery";
 import Context from "../../context";
 import EventListener from "./EventListener";
 
-export default class JoinMeetingEventListener extends EventListener {
+export default class JoinMeetingListener extends EventListener {
 
     constructor(protected readonly context: Context) {
         super(context);

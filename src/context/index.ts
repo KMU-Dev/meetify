@@ -18,10 +18,11 @@ export default class Context {
         this.participantNumber = value;
     }
 
-    showNotification(text: string) {
+    showNotification(text: string, timeout: number = 5000) {
         GM_notification({
             title: "Meetify",
             text,
+            timeout,
         });
     }
 }

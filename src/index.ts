@@ -1,14 +1,14 @@
 import Application from "./Application";
-import JoinMeetingEventListener from "./event/listener/JoinMeetingEventListener";
+import JoinMeetingListener from "./event/listener/JoinMeetingListener";
 import MessageTabListener from "./event/listener/MessageTabListener";
-import ParticipantEventListener from "./event/listener/ParticipantEventListener";
+import ParticipantListener from "./event/listener/ParticipantListener";
 import MeetifyEvents from "./event/MeetifyEvents";
 
 const application = new Application();
 
-application.registerEventListener(ParticipantEventListener, MeetifyEvents.participantChange);
+application.registerEventListener(ParticipantListener, MeetifyEvents.participantChange);
 
-application.registerEventListener(JoinMeetingEventListener, MeetifyEvents.joinMeeting, MeetifyEvents.messageButtonReady);
+application.registerEventListener(JoinMeetingListener, MeetifyEvents.joinMeeting, MeetifyEvents.messageButtonReady);
 application.registerEventListener(MessageTabListener, MeetifyEvents.messageTabVisibilityChange);
 
 application.start();
