@@ -19,6 +19,17 @@ export default class ChildlistMutaionHandler extends MutationHandler {
                 if ($(addedNode).attr("jsname") === "A5il2e" && $(addedNode).attr("data-panel-id") === "2") {
                     this.fireEvent(MeetifyEvents.messageButtonReady, addedNode);
                 }
+
+                // monitor message in new user
+                if ($(addedNode).attr("jsname") === "Ypafjf" && $(addedNode).children().length > 0) {
+                    const message = $(addedNode).find("[jsname='dTKtvb']:not(.gYckH)").text();
+                    if (message !== "") this.fireEvent(MeetifyEvents.receiveMessage, message);
+                }
+
+                // monitor message in same user
+                if ($(addedNode).attr("jsname") === "dTKtvb" && !$(addedNode).hasClass("gYckH")) {
+                    this.fireEvent(MeetifyEvents.receiveMessage, $(addedNode).text());
+                }
             })
         }
     }

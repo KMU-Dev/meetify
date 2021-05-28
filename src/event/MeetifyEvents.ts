@@ -3,6 +3,7 @@ enum MeetifyEvents {
     messageButtonReady = "messageButtonReady",
     participantChange = "participantChange",
     messageTabVisibilityChange = "messageTabVisibilityChange",
+    receiveMessage = "receiveMessage",
 }
 
 export default MeetifyEvents;

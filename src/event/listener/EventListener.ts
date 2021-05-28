@@ -11,4 +11,8 @@ export default abstract class EventListener {
     onParticipantChange(event: CustomEvent<number>) {}
 
     onMessageTabVisibilityChange(event: CustomEvent<boolean>) {}
+
+    onMessageReceive(event: CustomEvent<string>) {
+        
+    }
 }

@@ -10,6 +10,7 @@ export default class Application {
         "messageButtonReady": "onMessageButtonReady",
         "participantChange": "onParticipantChange",
         "messageTabVisibilityChange": "onMessageTabVisibilityChange",
+        "receiveMessage": "onMessageReceive",
     };
 
     private context: Context = Context.getInstance();
@@ -50,8 +51,6 @@ export default class Application {
 
     private monitorEvent() {
         this.listenerStore.forEach((value, key) => {
-            /* console.log(key);
-            console.log(value); */
             addEventListener(key, (event) => {
                 for (const Listener of value) {
                     const listener = new Listener(this.context);
