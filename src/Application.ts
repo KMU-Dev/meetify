@@ -9,6 +9,7 @@ export default class Application {
         "joinMeeting": "onJoinMeeting",
         "messageButtonReady": "onMessageButtonReady",
         "participantChange": "onParticipantChange",
+        "messageTabVisibilityChange": "onMessageTabVisibilityChange",
     };
 
     private context: Context = Context.getInstance();
@@ -54,7 +55,7 @@ export default class Application {
             addEventListener(key, (event) => {
                 for (const Listener of value) {
                     const listener = new Listener(this.context);
-                    listener[this.eventHandlerMap[key]](event as CustomEvent);
+                    listener[this.eventHandlerMap[key]](event as any);
                 }
             });
         })
