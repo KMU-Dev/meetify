@@ -9,6 +9,8 @@ export default class MessageListener extends EventListener {
 
     private sessionManager?: SessionManager;
 
+    private sentMessage?: string;
+
     constructor(protected readonly context: Context) {
         super(context);
     }
@@ -17,8 +19,10 @@ export default class MessageListener extends EventListener {
         if (!this.sessionManager) {
             this.sessionManager = new SessionManager(this.context);
             this.sessionManager.listen((session: Session) => {
-                if (session.getSameMessageCount() > this.context.getParticipantNumber() * this.followRatio) {
-                    console.log(`send "${session.lastMessage}"`);
+                if (session.getSameMessageCount() > this.context.getParticipantNumber() * this.followRatio && session.getSameMessage() !== this.sentMessage) {
+                    console.log(`send "${session.getSameMessage()}"`);
+                    this.context.sendMessage(session.getSameMessage());
+                    this.sentMessage = session.getSameMessage();
                 }
             });
         }

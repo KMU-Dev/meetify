@@ -12,9 +12,6 @@ export default class SessionManager {
     constructor(private readonly context: Context) {}
 
     handle(message: string) {
-        console.log("# in session manager");
-        console.log(this.context);
-        
         let session: Session;
         if (this.sessions.length === 0) {
             session = new Session(SessionType.OTHERS);

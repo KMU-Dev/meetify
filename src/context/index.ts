@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 export default class Context {
 
     private static instance: Context;
@@ -16,6 +18,11 @@ export default class Context {
 
     setParticipantNumber(value: number) {
         this.participantNumber = value;
+    }
+
+    sendMessage(message: string) {
+        $("textarea[jsname='YPqjbf']").val(message);
+        $("[jsname='SoqoBf']").removeAttr("aria-disabled").trigger("click");
     }
 
     showNotification(text: string, timeout: number = 5000) {
