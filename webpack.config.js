@@ -31,7 +31,7 @@ module.exports = {
         new WebpackUserscript({
             headers: {
                 name: "Meetify",
-                namespace: "https://webzyno.com",
+                namespace: "https://github.com/KMU-Dev/meetify",
                 version: dev ? `[version]-build.[buildNo]` : `[version]`,
                 description: "Google Meet notification tampermonkey script",
                 author: "Chao Tzu-Hsien",
@@ -40,6 +40,10 @@ module.exports = {
                 grant: [
                     "GM_notification",
                 ],
+                homepage: "https://github.com/KMU-Dev/meetify",
+                updateURL: "https://jenkins.webzyno.com/job/KMU%20Development%20Team/job/meetify/job/master/lastSuccessfulBuild/artifact/dist/meetify.meta.js",
+                downloadURL: "https://jenkins.webzyno.com/job/KMU%20Development%20Team/job/meetify/job/master/lastSuccessfulBuild/artifact/dist/meetify.user.js",
+                supportURL: "https://github.com/KMU-Dev/meetify/issues",
             },
             proxyScript: {
                 baseUrl: "http://127.0.0.1:8080",

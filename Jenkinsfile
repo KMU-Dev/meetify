@@ -24,7 +24,7 @@ pipeline {
     }
     post {
         always {
-            archiveArtifacts artifacts: 'dist/meetify.user.js', fingerprint: true
+            archiveArtifacts artifacts: 'dist/meetify.*.js', fingerprint: true
         }
     }
 }
