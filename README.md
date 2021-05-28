@@ -8,7 +8,7 @@ Google Meet notification tampermonkey script.
 
 We use our Jenkins server to build this project. Follow [this link](https://jenkins.webzyno.com/job/KMU%20Development%20Team/job/meetify/job/master/lastSuccessfulBuild/artifact/dist/meetify.user.js) to Download.
 
-> For users who didn't install Tampermonkey before, please follow the steps below. 
+For users who didn't install Tampermonkey before, please follow the steps below. 
 
 ## Install Tampermonkey
 
