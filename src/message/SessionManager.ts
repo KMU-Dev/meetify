@@ -32,9 +32,7 @@ export default class SessionManager {
                 session = new Session(SessionType.OTHERS);
                 shouldPush = true;
             } else {
-                if (session.getSameMessage().trim() === message.trim()) {
-                    session.zeroConsequentDifferentCount();
-                } else {
+                if (session.getSameMessage().trim() !== message.trim()) {
                     // check if this message exceed different message count
                     const quota = this.context.getParticipantNumber() * this.differentMesssageRatio;
 
@@ -42,7 +40,7 @@ export default class SessionManager {
                     if (session.getConsequentDifferentCount() > quota) {
                         session = session.createNewFromLast(session.getConsequentDifferentCount(), SessionType.OTHERS);
                         shouldPush = true;
-                    } else session.tickConsequentDifferentCount();
+                    }
                 }
             }
         }

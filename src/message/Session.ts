@@ -23,7 +23,11 @@ export class Session {
     appendMessage(message: string) {
         if (this.type === SessionType.SAME) {
             if (this.messages.length === 0) this.sameMessage = message;
-            if (message === this.sameMessage) this.sameCount++;
+
+            if (message === this.sameMessage) {
+                this.sameCount++;
+                this.consequentDifferentCount = 0;
+            } else this.consequentDifferentCount++;
         }
 
         this.messages.push(message);
@@ -45,14 +49,6 @@ export class Session {
 
     getConsequentDifferentCount() {
         return this.consequentDifferentCount;
-    }
-
-    zeroConsequentDifferentCount() {
-        this.consequentDifferentCount = 0;
-    }
-
-    tickConsequentDifferentCount() {
-        this.consequentDifferentCount++;
     }
 
     createNewFromLast(count: number, type: SessionType) {
