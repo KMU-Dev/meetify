@@ -37,4 +37,4 @@
 
 ## 授權
 
-此專案使用以下授權: [MIT](LICENSE.md)
+此專案使用以下授權: [MIT](../LICENSE.md)
