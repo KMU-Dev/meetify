@@ -1,7 +1,6 @@
 import Context from "../context";
 import MessageFilter from "./MessageFilter";
-import MessageHandler from "./MessageHandler";
-import { Session, SesstionType } from "./Session";
+import { Session } from "./Session";
 import SessionChangedNotifier from "./SessionChangedNotifier";
 
 export class MessagePool {
@@ -107,10 +106,6 @@ export type RefilterCallback = (count: number) => void;
 
 type FilterType<T extends MessageFilter> = {
     new (context: Context, refilter: RefilterCallback): T
-}
-
-type HandlerType<T extends MessageHandler> = {
-    new (context: Context): T
 }
 
 type NotifierType<T extends SessionChangedNotifier> = {
