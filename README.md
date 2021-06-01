@@ -1,4 +1,7 @@
 # Meetify
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Build Status](https://jenkins.webzyno.com/buildStatus/icon?job=KMU+Development+Team%2Fmeetify%2Fmaster)](https://jenkins.webzyno.com/job/KMU%20Development%20Team/job/meetify/job/master/)
 ![GitHub](https://img.shields.io/github/license/KMU-Dev/meetify?color=blue)
@@ -40,3 +43,23 @@ Go to our [GitHub issue tracker](https://github.com/KMU-Dev/meetify/issues) and 
 ## License
 
 This project uses the following license: [MIT](LICENSE.md)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/ZhaoTzuHsien"><img src="https://avatars.githubusercontent.com/u/37932792?v=4?s=100" width="100px;" alt=""/><br /><sub><b>趙子賢</b></sub></a><br /><a href="https://github.com/KMU-Dev/meetify/commits?author=ZhaoTzuHsien" title="Code">💻</a> <a href="#ideas-ZhaoTzuHsien" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/KMU-Dev/meetify/commits?author=ZhaoTzuHsien" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
