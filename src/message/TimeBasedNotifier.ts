@@ -33,9 +33,12 @@ export default class TimeBasedNotifier extends SessionChangedNotifier {
     }
 
     notify(session: Session, _messages: MessageRecord[]) {
-        if (session.type === SesstionType.SAME) {
+        /*if (session.type === SesstionType.SAME) {
             const sameMessage = session.messages[0].message;
             this.context.showNotification(`Many users are sending "${sameMessage}" in a short time`);
-        } else this.context.showNotification(`Many users are sending messages in a short time`);
+        } */
+        if (session.type === SesstionType.OTHERS) {
+            this.context.showNotification(`Many users are sending messages in a short time`);
+        }
     }
 }
