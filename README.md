@@ -2,9 +2,7 @@
 
 [![Build Status](https://jenkins.webzyno.com/buildStatus/icon?job=KMU+Development+Team%2Fmeetify%2Fmaster)](https://jenkins.webzyno.com/job/KMU%20Development%20Team/job/meetify/job/master/)
 ![GitHub](https://img.shields.io/github/license/KMU-Dev/meetify?color=blue)
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Google Meet notification and auto message sending tampermonkey script.
 
