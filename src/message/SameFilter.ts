@@ -32,29 +32,27 @@ export default class SameFilter extends MessageFilter {
         const sessionMessages = currentSession.messages;
         const lastMessageRecord = sessionMessages.length === 0 ? undefined : sessionMessages[sessionMessages.length - 1];
 
-        if (messageRecord.message === lastMessageRecord?.message) {
+        if (messageRecord.message === this.sameMessage) {
             this.differentMessageCount = 0;
-
             if (currentSession.type === SesstionType.SAME) return true;
-            else {
+        } else {
+            if (currentSession.type === SesstionType.SAME) {
+                // check if different message exceeds threshold
+                const participantCount = this.context.getParticipantNumber();
+
+                this.differentMessageCount += 1;
+                
+                // filter the message to OTHER session type
+                if (this.differentMessageCount <= participantCount * SameFilter.differentMessageRatio + 1) return true;
+            } else if (messageRecord.message === lastMessageRecord?.message) {
                 // refilter the last message and filter it to SAME session
                 this.shouldCreateSession = true;
                 this.refilter(1);
                 return true;
-            };
-        } else {
-            if (currentSession.type === SesstionType.SAME) {
-                if (messageRecord.message === this.sameMessage) return true;
-                else {
-                    // check if different message exceeds threshold
-                    const participantCount = this.context.getParticipantNumber();
-
-                    this.differentMessageCount += 1;
-                    
-                    // filter the message to OTHER session type
-                    if (this.differentMessageCount <= participantCount * SameFilter.differentMessageRatio + 1) return true;
-                }
             }
         }
+
+        // unset same message if handling session is not SAME type
+        this.sameMessage = undefined;
     }
 }
