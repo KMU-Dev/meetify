@@ -48,7 +48,7 @@ module.exports = {
             proxyScript: {
                 baseUrl: "http://127.0.0.1:8080",
                 filename: "[basename].proxy.user.js",
-                enable: true,
+                enable: dev,
             },
         }),
     ],
