@@ -5,11 +5,13 @@
 
 Google Meet notification and auto message sending tampermonkey script.
 
+Translations: [繁體中文](docs/README-zh_TW.md)
+
 ## Features
 
-- Send notification to you if there are many users sending message in a short time.
-- Auto send the message if many users are sending the same message.
-- [] Reconize special template allowing meetify to roll call for you.
+- [x] Send notification to you if there are many users sending message in a short time.
+- [x] Auto send the message if many users are sending the same message.
+- [ ] Reconize special template allowing meetify to roll call for you.
 
 ## Installation
 
