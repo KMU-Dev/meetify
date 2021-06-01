@@ -1,32 +1,32 @@
 import Context from "../../context";
-import { Session } from "../../message/Session";
-import SessionManager from "../../message/SessionManager";
+import { MessagePool } from "../../message/MessagePool";
+import OtherFilter from "../../message/OtherFilter";
+import SameFilter from "../../message/SameFilter";
+import TimeBasedNotifier from "../../message/TimeBasedNotifier";
 import EventListener from "./EventListener"
 
 export default class MessageListener extends EventListener {
 
     private readonly followRatio = 0.5;
 
-    private sessionManager?: SessionManager;
-
-    private sentMessage?: string;
+    private messagePool?: MessagePool;
 
     constructor(protected readonly context: Context) {
         super(context);
     }
 
     onMessageReceive(event: CustomEvent<string>) {
-        if (!this.sessionManager) {
-            this.sessionManager = new SessionManager(this.context);
-            this.sessionManager.listen((session: Session) => {
-                if (session.getSameMessageCount() > this.context.getParticipantNumber() * this.followRatio && session.getSameMessage() !== this.sentMessage) {
-                    console.log(`send "${session.getSameMessage()}"`);
-                    this.context.sendMessage(session.getSameMessage());
-                    this.sentMessage = session.getSameMessage();
-                }
-            });
+        if (!this.messagePool) {
+            this.messagePool = new MessagePool(this.context);
+
+            // register message filter
+            this.messagePool.registerFilter(SameFilter, 1);
+            this.messagePool.registerFilter(OtherFilter, 0);
+
+            // add message Notifier
+            this.messagePool.registerNotifiers(TimeBasedNotifier);
         }
 
-        this.sessionManager.handle(event.detail);
+        this.messagePool.pour(event.detail);
     }
 }
