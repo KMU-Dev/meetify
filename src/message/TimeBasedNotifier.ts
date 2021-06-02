@@ -7,7 +7,7 @@ export default class TimeBasedNotifier extends SessionChangedNotifier {
 
     private static readonly mpmThreshold = 4;
 
-    private notifiedSessionId?: number;
+    protected notifiedSessionId?: number;
 
     constructor(protected readonly context: Context) {
         super(context);
@@ -23,10 +23,7 @@ export default class TimeBasedNotifier extends SessionChangedNotifier {
                 const lastMessageTime = messages[messages.length - 1].timestamp;
 
                 // notify if time duration is less than 1 min
-                if (lastMessageTime - firstMessageTime < 60 * 1000) {
-                    this.notifiedSessionId = session.id;
-                    return true;
-                }
+                if (lastMessageTime - firstMessageTime < 60 * 1000) return true;
             }
         }
         return false;
@@ -40,5 +37,7 @@ export default class TimeBasedNotifier extends SessionChangedNotifier {
         if (session.type === SesstionType.OTHERS) {
             this.context.showNotification(`Many users are sending messages in a short time`);
         }
+
+        this.notifiedSessionId = session.id;
     }
 }

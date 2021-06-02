@@ -28,5 +28,7 @@ export default class SameMessageNotifier extends TimeBasedNotifier {
         // send message
         console.log(`send "${sameMessage}"`);
         this.context.sendMessage(sameMessage);
+
+        this.notifiedSessionId = session.id;
     }
 }
