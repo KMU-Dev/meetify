@@ -34,6 +34,11 @@ Fingerprint: https://jenkins.webzyno.com/job/KMU%20Development%20Team/job/meetif
 
 We use our Jenkins server to build this project. So if you are unsatisfied with that, you can build it on your own. Our project is open source!
 
+## Update
+
+Click the TamperMonkey extension icon on the top-right of your Chrome, and then click the Dashboard button.
+In installed script page, find the meetify script and click the last updated column, it will check for update and update it automatically.
+
 ## Bug report
 
 Go to our [GitHub issue tracker](https://github.com/KMU-Dev/meetify/issues) and submit your issue.

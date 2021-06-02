@@ -32,6 +32,11 @@
 
 我們使用 Jenkins 來建置我們的專案，如果你對此不滿意，你可以自己建構。我們擁抱開源軟體！
 
+## 更新
+
+點擊 Chrome 右上角的 TamperMonkey 插建按鈕，並選擇控制台。
+在已安裝的使用者腳本畫面中，找到 Meetify 並點擊最後更新的欄位，他會檢查並完成更新。
+
 ## Bug 回報
 
 前往 [GitHub issue tracker](https://github.com/KMU-Dev/meetify/issues) 並提交你的 Bug 回報。
