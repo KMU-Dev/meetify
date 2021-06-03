@@ -7,16 +7,22 @@ export default class SameMessageNotifier extends TimeBasedNotifier {
 
     private static readonly sendMessageRatio = 0.3;
 
+    private sendSessionId?: number;
+
     constructor(protected readonly context: Context) {
         super(context);
     }
 
     shouldNotify(session: Session) {
-        const timeBasedResult = super.shouldNotify(session);
+        const timeBasedResult = super.passMpmThreshold(session.messages);
 
         if (session.type === SesstionType.SAME) {
             const participantNumber = this.context.getParticipantNumber();
-            if (session.messages.length > participantNumber * SameMessageNotifier.sendMessageRatio) return timeBasedResult;
+            console.log("session.messages.length: " + session.messages.length);
+            console.log("participantNumber * SameMessageNotifier.sendMessageRatio: " + participantNumber * SameMessageNotifier.sendMessageRatio);
+            if (session.messages.length > participantNumber * SameMessageNotifier.sendMessageRatio) {
+                return timeBasedResult && session.id !== this.sendSessionId;
+            }
         }
 
         return false;
@@ -29,6 +35,6 @@ export default class SameMessageNotifier extends TimeBasedNotifier {
         console.log(`send "${sameMessage}"`);
         this.context.sendMessage(sameMessage);
 
-        this.notifiedSessionId = session.id;
+        this.sendSessionId = session.id;
     }
 }
